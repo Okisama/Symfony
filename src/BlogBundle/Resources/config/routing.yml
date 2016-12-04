@@ -1,20 +1,21 @@
 blog_homepage:
     path:     /
-    defaults: { _controller: BlogBundle:Default:index }
+    defaults: { _controller: BlogBundle:Blog:index }
 
-blog_list:
-    path:      /blog/{page}/{article}.{_format}
-    defaults:  { _controller: BlogBundle:Default:list, page: 2, _format: html }
-    requirements:
-          _format:  html|rss
-          page:     \d+
+blog_forif:
+    path:      /forif
+    defaults:  { _controller: BlogBundle:Blog:forif }
 
 
-blog_show:
-    path:      /blog/{slug}
-    defaults:  { _controller: BlogBundle:Default:show }
+
+blog_extend:
+    path:      /extend
+    defaults:  { _controller: BlogBundle:Blog:extend }
+
+blog_include:
+    path:      /include
+    defaults:  { _controller: BlogBundle:Blog:include }
 
 
-app:
-    resource: '@BlogBundle/Controller/'
-    prefix: /en
+
+

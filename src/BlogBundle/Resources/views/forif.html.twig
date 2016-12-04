@@ -1,0 +1,8 @@
+{% if user %}
+    Current user is {{ user }}
+    <ul>
+        {% for data in array %}
+            <li>{{ data|upper }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

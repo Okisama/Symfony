@@ -3,27 +3,49 @@
 namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
+use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends Controller
 {
+    /**
+     * @return Response
+     * Стартовая страница
+     */
     public function indexAction()
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        $title = 'Welcome!';
+        $page_title = 'Start page';
+        return $this->render('index.html.twig', array('title' => $title, 'page_title' => $page_title));
     }
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listAction($page, $article, $_format)
+    public function forifAction()
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+
+        $user = 'guest';
+        $arr = array('a', 'b', 'c');
+
+
+        return $this->render('forif.html.twig', array('user' => $user, 'array' => $arr));
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function showAction($slug)
+    public function extendAction()
+
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        $title = 'Welcome!';
+        $page_title = 'Start page';
+        return $this->render('extend.html.twig', array('title' => $title, 'page_title' => $page_title));
     }
+
+    public function includeAction()
+    {
+        $title = 'Welcome!';
+        $page_title = 'Start page';
+        return $this->render('include.html.twig', array('title' => $title, 'page_title' => $page_title));
+    }
+
+
 }
